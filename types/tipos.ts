@@ -33,10 +33,10 @@ endereco = ['a', 0]
 
 //enums
 enum Cor {
-    Cinza,
+    Cinza, ///0
     Verde = 100,
     Azul = 2,
-    Laranja,
+    Laranja, //2
     Amarelo,
     Vermelho = 100
 }
@@ -46,3 +46,31 @@ console.log(minhaCor)
 console.log(Cor.Azul)
 console.log(Cor.Laranja, Cor.Amarelo)
 console.log(Cor.Verde, Cor.Vermelho)
+
+let nome = 'andre'
+//any
+let carro: any = 'BMW'
+console.log(carro)
+carro = {
+    marca: 'bmw',
+    ano: 2019
+}
+console.log(carro)
+
+//funçoes
+function retornaMeuNome(): string{
+    return nome
+}
+console.log(retornaMeuNome())
+
+function digaOi(): void{
+    console.log('Oi')
+}
+
+digaOi()
+
+function multiplicar(numA: number, numB: number): number{
+    return numA * numB
+}
+
+console.log(multiplicar(2, 2))

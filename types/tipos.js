@@ -15,3 +15,37 @@ console.log(hobbies[0]);
 console.log(typeof hobbies);
 hobbies = [100, 200, 300];
 console.log(hobbies);
+//tuplas
+var endereco = ["av principal", 99];
+console.log(endereco);
+endereco = ['a', 0];
+//enums
+var Cor;
+(function (Cor) {
+    Cor[Cor["Cinza"] = 0] = "Cinza";
+    Cor[Cor["Verde"] = 100] = "Verde";
+    Cor[Cor["Azul"] = 2] = "Azul";
+    Cor[Cor["Laranja"] = 3] = "Laranja";
+    Cor[Cor["Amarelo"] = 4] = "Amarelo";
+    Cor[Cor["Vermelho"] = 100] = "Vermelho";
+})(Cor || (Cor = {}));
+var minhaCor = Cor.Verde;
+console.log(minhaCor);
+console.log(Cor.Azul);
+console.log(Cor.Laranja, Cor.Amarelo);
+console.log(Cor.Verde, Cor.Vermelho);
+var nome = 'andre';
+//any
+var carro = 'BMW';
+console.log(carro);
+carro = {
+    marca: 'bmw',
+    ano: 2019
+};
+console.log(carro);
+//funçoes
+function retornaMeuNome() {
+    return nome;
+}
+console.log(retornaMeuNome());
+
