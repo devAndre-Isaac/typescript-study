@@ -30,3 +30,19 @@ let endereco: [string, number] = ["av principal", 99]
 console.log(endereco)
 
 endereco = ['a', 0]
+
+//enums
+enum Cor {
+    Cinza,
+    Verde = 100,
+    Azul = 2,
+    Laranja,
+    Amarelo,
+    Vermelho = 100
+}
+
+let minhaCor: Cor = Cor.Verde
+console.log(minhaCor)
+console.log(Cor.Azul)
+console.log(Cor.Laranja, Cor.Amarelo)
+console.log(Cor.Verde, Cor.Vermelho)
