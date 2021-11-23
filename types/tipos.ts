@@ -1,3 +1,5 @@
+import { textSpanEnd } from "typescript"
+
 let idade: number = 27
 
 idade = 27.2
@@ -74,3 +76,16 @@ function multiplicar(numA: number, numB: number): number{
 }
 
 console.log(multiplicar(2, 2))
+
+
+//tipo função
+const test = function (a: number, b: number): boolean {
+    return false
+}
+
+let calculo: (numeroA: number, numeroB: number) => number
+// calculo = digaOi
+// calculo()
+
+calculo = multiplicar
+console.log(calculo(5, 6))
