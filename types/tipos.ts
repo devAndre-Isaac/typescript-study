@@ -157,4 +157,12 @@ nota = '10'
 
 console.log(`Minha nota é ${nota}`)
 
+// check types
 
+let valor  = 30
+
+if(typeof valor === 'number'){
+  console.log('E um number')
+}else{
+  console.log( typeof valor)
+}
