@@ -166,3 +166,26 @@ if(typeof valor === 'number'){
 }else{
   console.log( typeof valor)
 }
+
+
+// never type
+
+function falha(msg: string): never{
+  // while(true){} 
+  throw new Error(msg)
+}
+const produto = {
+  nome: 'Sabao',
+  preco: 4,
+  validarProduto(){
+    if(!this.nome || this.nome.trim().length === 0){
+      falha('Precisa ter um nome')
+    }
+    if(this.preco <= 0){
+      falha('preço invalido')
+    }
+  }
+}
+
+produto.validarProduto()
+
