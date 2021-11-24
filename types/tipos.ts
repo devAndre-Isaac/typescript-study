@@ -219,3 +219,50 @@ podeSerNull = 12
 console.log(podeSerNull)
 podeSerNull = 'abc'
 console.log(podeSerNull)
+
+
+// challenge
+// let contaBancaria = {
+//   saldo: 3456,
+//   depositar(valor: any) {
+//       this.saldo += valor
+//   }
+// }
+
+// let correntista = {
+//   nome: 'Ana Silva',
+//   contaBancaria: contaBancaria,
+//   contatos: ['34567890', '98765432']
+// }
+
+// correntista.contaBancaria.depositar(3000)
+// console.log(correntista)
+
+// challenge  ok
+type Conta = {
+  saldo: number
+  depositar: (valor: number) => void
+}
+
+type Correntista = {
+  nome: string,
+  contaBancaria: Conta,
+  contatos: string[]
+}
+
+let contaBancaria1: Conta = {
+  saldo: 3456,
+  depositar(valor) {
+      this.saldo += valor
+  }
+}
+
+let correntista1 = {
+  nome: 'Ana Silva',
+  contaBancaria: contaBancaria1,
+  contatos: ['34567890', '98765432']
+}
+
+correntista1.contaBancaria.depositar(3000)
+console.log(correntista1)
+
