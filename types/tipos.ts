@@ -109,10 +109,25 @@ usuario = {
   idade: 22,
 };
 
-let funcionario: {
+//Alias tipos personalizados
+
+type Funcionario = {
   supervisores: string[];
   baterPonto: (horas: number) => string;
-} = {
+}
+
+let funcionario: Funcionario = {
+  supervisores: ["Ana", "Feranndo"],
+  baterPonto(horario: number): string {
+    if (horario <= 8) {
+      return "Ponto Normal";
+    } else {
+      return "fora do horario";
+    }
+  },
+};
+
+let funcionario2: Funcionario = {
   supervisores: ["Ana", "Feranndo"],
   baterPonto(horario: number): string {
     if (horario <= 8) {
@@ -126,3 +141,20 @@ let funcionario: {
 console.log(funcionario.supervisores)
 console.log(funcionario.baterPonto(8))
 console.log(funcionario.baterPonto(9))
+
+console.log(funcionario2.supervisores)
+console.log(funcionario2.baterPonto(8))
+console.log(funcionario2.baterPonto(9))
+
+
+//Union types
+
+let nota: number | string = 10
+
+console.log(`Minha nota é ${nota}`)
+
+nota = '10'
+
+console.log(`Minha nota é ${nota}`)
+
+
