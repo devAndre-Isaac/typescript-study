@@ -1,5 +1,3 @@
-import { textSpanEnd } from "typescript";
-
 let idade: number = 27;
 
 idade = 27.2;
@@ -48,7 +46,7 @@ console.log(Cor.Azul);
 console.log(Cor.Laranja, Cor.Amarelo);
 console.log(Cor.Verde, Cor.Vermelho);
 
-let nome = "andre";
+// let nome = "andre";
 //any
 let carro: any = "BMW";
 console.log(carro);
