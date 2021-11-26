@@ -26,3 +26,10 @@ for (var i = 0; i < 10; i++) {
     console.log(i);
 }
 // console.log(i)
+//Arrow function
+var somar = function (n1, n2) {
+    return n1 + n2;
+};
+console.log(somar(1, 2));
+var subtrair = function (n1, n2) { return n1 - n2; };
+console.log(subtrair(3, 313));

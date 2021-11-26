@@ -36,3 +36,12 @@ for(var i = 0; i<10; i++){
 }
 
 // console.log(i)
+
+//Arrow function
+const somar = function(n1: number, n2: number): number {
+    return n1+n2
+}
+console.log(somar(1, 2))
+
+const subtrair = (n1: number, n2: number): number => n1-n2
+console.log(subtrair(3,313))
