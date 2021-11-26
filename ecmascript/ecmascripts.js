@@ -33,3 +33,19 @@ var somar = function (n1, n2) {
 console.log(somar(1, 2));
 var subtrair = function (n1, n2) { return n1 - n2; };
 console.log(subtrair(3, 313));
+var saudacao = function () { return console.log("ola"); };
+saudacao();
+var falarCom = function (pessoa) { return console.log("ola", +pessoa); };
+falarCom("poe");
+//this
+function normalComThis() {
+    console.log( /*this*/);
+}
+var normalComThisEspecial = normalComThis.bind("Abc");
+normalComThisEspecial();
+//this??
+console.log(this);
+var arrowComThis = function () { return console.log( /*this*/); };
+arrowComThis();
+var arrowComThisEspecial = normalComThis.bind("Abc");
+arrowComThis();

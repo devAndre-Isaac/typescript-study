@@ -31,17 +31,39 @@ console.log(segredo);
   }
 }
 
-for(var i = 0; i<10; i++){
-    console.log(i)
+for (var i = 0; i < 10; i++) {
+  console.log(i);
 }
-
 // console.log(i)
 
 //Arrow function
-const somar = function(n1: number, n2: number): number {
-    return n1+n2
-}
-console.log(somar(1, 2))
+const somar = function (n1: number, n2: number): number {
+  return n1 + n2;
+};
+console.log(somar(1, 2));
 
-const subtrair = (n1: number, n2: number): number => n1-n2
-console.log(subtrair(3,313))
+const subtrair = (n1: number, n2: number): number => n1 - n2;
+console.log(subtrair(3, 313));
+
+const saudacao = () => console.log("ola");
+
+saudacao();
+
+const falarCom = (pessoa: string) => console.log("ola", +pessoa);
+falarCom("poe");
+
+//this
+
+function normalComThis() {
+  console.log(/*this*/);
+}
+const normalComThisEspecial = normalComThis.bind("Abc");
+normalComThisEspecial();
+
+//this??
+console.log(this)
+const arrowComThis = () => console.log(/*this*/)
+arrowComThis()
+
+const arrowComThisEspecial = normalComThis.bind("Abc");
+arrowComThis();
