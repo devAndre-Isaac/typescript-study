@@ -1,3 +1,12 @@
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 ///let & const
 var seraQuePode = "?"; // hoisting
 console.log(seraQuePode);
@@ -62,3 +71,9 @@ function contagemRegressiva(inicio, fim) {
 }
 contagemRegressiva();
 contagemRegressiva(5);
+//Rest &Spred Operator
+var numbers = [1, 10, 99, -5];
+console.log(Math.max.apply(Math, numbers));
+var turmaA = ['joao', 'andre', 'abel'];
+var turmaB = __spreadArray(['fernando', 'miguel'], turmaA, true);
+console.log(turmaB);

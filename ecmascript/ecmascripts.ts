@@ -80,3 +80,13 @@ function contagemRegressiva(inicio: number = 3, fim: number = inicio- 5):void{
 }
 contagemRegressiva()
 contagemRegressiva(5)
+
+//Rest &Spred Operator
+
+const numbers = [1, 10, 99, -5]
+console.log(Math.max(...numbers))
+
+const turmaA: string [] = ['joao', 'andre', 'abel']
+const turmaB: string[] = ['fernando', 'miguel', ...turmaA]
+
+console.log(turmaB)
