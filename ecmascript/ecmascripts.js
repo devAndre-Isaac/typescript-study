@@ -49,3 +49,16 @@ var arrowComThis = function () { return console.log( /*this*/); };
 arrowComThis();
 var arrowComThisEspecial = normalComThis.bind("Abc");
 arrowComThis();
+//parametro
+function contagemRegressiva(inicio, fim) {
+    if (inicio === void 0) { inicio = 3; }
+    if (fim === void 0) { fim = inicio - 5; }
+    console.log(inicio);
+    while (inicio >= 0) {
+        inicio--;
+        console.log(inicio);
+    }
+    console.log('Fim');
+}
+contagemRegressiva();
+contagemRegressiva(5);

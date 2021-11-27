@@ -67,3 +67,16 @@ arrowComThis()
 
 const arrowComThisEspecial = normalComThis.bind("Abc");
 arrowComThis();
+
+//parametro
+
+function contagemRegressiva(inicio: number = 3, fim: number = inicio- 5):void{
+ console.log(inicio)
+ while(inicio >= 0){
+   inicio--
+   console.log(inicio)
+ }
+ console.log('Fim')
+}
+contagemRegressiva()
+contagemRegressiva(5)
