@@ -90,3 +90,12 @@ const turmaA: string [] = ['joao', 'andre', 'abel']
 const turmaB: string[] = ['fernando', 'miguel', ...turmaA]
 
 console.log(turmaB)
+
+function returnArray(...args: number[]): number[]{
+  return args
+}
+
+const numeros = returnArray(1, 2, 3, 4, 5)
+console.log(numeros)
+
+console.log(returnArray(...numbers))

@@ -77,3 +77,13 @@ console.log(Math.max.apply(Math, numbers));
 var turmaA = ['joao', 'andre', 'abel'];
 var turmaB = __spreadArray(['fernando', 'miguel'], turmaA, true);
 console.log(turmaB);
+function returnArray() {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+    return args;
+}
+var numeros = returnArray(1, 2, 3, 4, 5);
+console.log(numeros);
+console.log(returnArray.apply(void 0, numbers));
