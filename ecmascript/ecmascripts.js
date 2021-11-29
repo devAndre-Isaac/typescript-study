@@ -109,3 +109,17 @@ var caracteristicas = ['motor', 2021];
 var motor = caracteristicas[0], ano = caracteristicas[1];
 console.log(ano);
 console.log(motor);
+//destructuring(obj)
+var item = {
+    nome: 'ssd',
+    preco: 200,
+    caracteristicas: {
+        w: 'Importado'
+    }
+};
+var nomeItem = item.nome;
+var precoItem = item.preco;
+var n = item.nome, p = item.preco, w = item.caracteristicas.w;
+console.log(n);
+console.log(p);
+console.log(w);

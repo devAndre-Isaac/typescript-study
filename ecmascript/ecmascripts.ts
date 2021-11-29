@@ -124,3 +124,20 @@ const caracteristicas = ['motor', 2021]
 const [ motor, ano ] = caracteristicas
 console.log(ano)
 console.log(motor)
+
+//destructuring(obj)
+const item = {
+  nome: 'ssd',
+  preco: 200,
+  caracteristicas: {
+    w: 'Importado'
+  }  
+}
+
+const nomeItem = item.nome
+const precoItem = item.preco
+
+const {nome: n, preco: p, caracteristicas: {w}} = item
+console.log(n)
+console.log(p)
+console.log(w)
