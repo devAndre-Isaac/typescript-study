@@ -102,3 +102,10 @@ function tuplaParam2() {
     console.log("2) ".concat(params[0], " ").concat(params[1], " ").concat(params[2], " "));
 }
 tuplaParam2.apply(void 0, tupla);
+// destructuring (array)
+var caracteristicas = ['motor', 2021];
+// const motor= caracteristicas[0]
+// const ano = caracteristicas[1]
+var motor = caracteristicas[0], ano = caracteristicas[1];
+console.log(ano);
+console.log(motor);

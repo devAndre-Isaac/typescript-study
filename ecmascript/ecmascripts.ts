@@ -116,3 +116,11 @@ function tuplaParam2 (...params: [number, string, boolean]){
 }
 
 tuplaParam2(...tupla)
+
+// destructuring (array)
+const caracteristicas = ['motor', 2021]
+// const motor= caracteristicas[0]
+// const ano = caracteristicas[1]
+const [ motor, ano ] = caracteristicas
+console.log(ano)
+console.log(motor)
