@@ -123,3 +123,10 @@ var n = item.nome, p = item.preco, w = item.caracteristicas.w;
 console.log(n);
 console.log(p);
 console.log(w);
+var usuarioId = 'SuporteCoder';
+var notificacoes = '9';
+// const boasVindas = 'Boas Vindas' + usuarioId + 'Notificacoes:' + notificacoes
+var boasvindas = "Boas vindas ".concat(usuarioId, ",\n                    Notificacoes: ").concat(parseInt(notificacoes) > 9 ? '  +9' : notificacoes, "\n");
+console.log(boasvindas);
+console.log("".concat((1 + 1) * 30));
+console.log("Motor: ".concat(caracteristicas[0]));

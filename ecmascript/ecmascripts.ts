@@ -141,3 +141,16 @@ const {nome: n, preco: p, caracteristicas: {w}} = item
 console.log(n)
 console.log(p)
 console.log(w)
+
+//template string
+const usuarioId: string = 'SuporteCoder'
+const notificacoes: string = '9'
+// const boasVindas = 'Boas Vindas' + usuarioId + 'Notificacoes:' + notificacoes
+
+const boasvindas = `Boas vindas ${usuarioId},
+                    Notificacoes: ${parseInt(notificacoes)> 9 ? '  +9': notificacoes}
+`
+console.log(boasvindas)
+console.log(`${(1+1) * 30}`)
+console.log(`Motor: ${caracteristicas[0]}`)
+
