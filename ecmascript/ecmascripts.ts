@@ -61,96 +61,134 @@ const normalComThisEspecial = normalComThis.bind("Abc");
 normalComThisEspecial();
 
 //this??
-console.log(this)
-const arrowComThis = () => console.log(/*this*/)
-arrowComThis()
+console.log(this);
+const arrowComThis = () => console.log(/*this*/);
+arrowComThis();
 
 const arrowComThisEspecial = normalComThis.bind("Abc");
 arrowComThis();
 
 //parametro
 
-function contagemRegressiva(inicio: number = 3, fim: number = inicio- 5):void{
- console.log(inicio)
- while(inicio >= 0){
-   inicio--
-   console.log(inicio)
- }
- console.log('Fim')
+function contagemRegressiva(
+  inicio: number = 3,
+  fim: number = inicio - 5
+): void {
+  console.log(inicio);
+  while (inicio >= 0) {
+    inicio--;
+    console.log(inicio);
+  }
+  console.log("Fim");
 }
-contagemRegressiva()
-contagemRegressiva(5)
+contagemRegressiva();
+contagemRegressiva(5);
 
 //Rest &Spred Operator
 
-const numbers = [1, 10, 99, -5]
-console.log(Math.max(...numbers))
+const numbers = [1, 10, 99, -5];
+console.log(Math.max(...numbers));
 
-const turmaA: string [] = ['joao', 'andre', 'abel']
-const turmaB: string[] = ['fernando', 'miguel', ...turmaA]
+const turmaA: string[] = ["joao", "andre", "abel"];
+const turmaB: string[] = ["fernando", "miguel", ...turmaA];
 
-console.log(turmaB)
+console.log(turmaB);
 
-function returnArray(...args: number[]): number[]{
-  return args
+function returnArray(...args: number[]): number[] {
+  return args;
 }
 
-const numeros = returnArray(1, 2, 3, 4, 5)
-console.log(numeros)
+const numeros = returnArray(1, 2, 3, 4, 5);
+console.log(numeros);
 
-console.log(returnArray(...numbers))
+console.log(returnArray(...numbers));
 
 //rest and spread (tupla)
 
-const tupla: [number, string, boolean] = [1, 'abc', false]
+const tupla: [number, string, boolean] = [1, "abc", false];
 
 function tuplaParam1(a: number, b: string, c: boolean): void {
-  console.log(`1) ${a} ${b} ${c}`)
-
+  console.log(`1) ${a} ${b} ${c}`);
 }
-tuplaParam1(...tupla)
+tuplaParam1(...tupla);
 
-function tuplaParam2 (...params: [number, string, boolean]){
-  console.log(Array.isArray(params))
-  console.log(`2) ${params[0]} ${params[1]} ${params[2]} `)
+function tuplaParam2(...params: [number, string, boolean]) {
+  console.log(Array.isArray(params));
+  console.log(`2) ${params[0]} ${params[1]} ${params[2]} `);
 }
 
-tuplaParam2(...tupla)
+tuplaParam2(...tupla);
 
 // destructuring (array)
-const caracteristicas = ['motor', 2021]
+const caracteristicas = ["motor", 2021];
 // const motor= caracteristicas[0]
 // const ano = caracteristicas[1]
-const [ motor, ano ] = caracteristicas
-console.log(ano)
-console.log(motor)
+const [motor, ano] = caracteristicas;
+console.log(ano);
+console.log(motor);
 
 //destructuring(obj)
 const item = {
-  nome: 'ssd',
+  nome: "ssd",
   preco: 200,
   caracteristicas: {
-    w: 'Importado'
-  }  
-}
+    w: "Importado",
+  },
+};
 
-const nomeItem = item.nome
-const precoItem = item.preco
+const nomeItem = item.nome;
+const precoItem = item.preco;
 
-const {nome: n, preco: p, caracteristicas: {w}} = item
-console.log(n)
-console.log(p)
-console.log(w)
+const {
+  nome: n,
+  preco: p,
+  caracteristicas: { w },
+} = item;
+console.log(n);
+console.log(p);
+console.log(w);
 
 //template string
-const usuarioId: string = 'SuporteCoder'
-const notificacoes: string = '9'
+const usuarioId: string = "SuporteCoder";
+const notificacoes: string = "9";
 // const boasVindas = 'Boas Vindas' + usuarioId + 'Notificacoes:' + notificacoes
 
 const boasvindas = `Boas vindas ${usuarioId},
-                    Notificacoes: ${parseInt(notificacoes)> 9 ? '  +9': notificacoes}
-`
-console.log(boasvindas)
-console.log(`${(1+1) * 30}`)
-console.log(`Motor: ${caracteristicas[0]}`)
+                    Notificacoes: ${
+                      parseInt(notificacoes) > 9 ? "  +9" : notificacoes
+                    }
+`;
+console.log(boasvindas);
+console.log(`${(1 + 1) * 30}`);
+console.log(`Motor: ${caracteristicas[0]}`);
 
+//CallBack
+
+function esperar3s(callback: (dado: string) => void) {
+  setTimeout(() => {
+    callback("3s depois");
+  }, 3000);
+}
+
+esperar3s(function (resultado: string) {
+  console.log(resultado);
+});
+
+//Promise
+function esperar3sPromise() {
+  return new Promise((resolve: any) => {
+    setTimeout(() => {
+      resolve("3s depois promise");
+    }, 3000);
+  });
+}
+
+esperar3sPromise().then((dado) => console.log(dado));
+
+fetch("https://swapi.co/api/people/1")
+  .then((res) => res.json())
+  .then((personagem) => personagem.filmes)
+  .then((films) => fetch(films[0]))
+  .then((resFilm) => resFilm.json())
+  .then((filme) => console.log(filme.title))
+  .catch((err) => console.log("Catch!!" + err));

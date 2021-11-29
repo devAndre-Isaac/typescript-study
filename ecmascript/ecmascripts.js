@@ -123,6 +123,7 @@ var n = item.nome, p = item.preco, w = item.caracteristicas.w;
 console.log(n);
 console.log(p);
 console.log(w);
+//template string
 var usuarioId = 'SuporteCoder';
 var notificacoes = '9';
 // const boasVindas = 'Boas Vindas' + usuarioId + 'Notificacoes:' + notificacoes
@@ -130,3 +131,22 @@ var boasvindas = "Boas vindas ".concat(usuarioId, ",\n                    Notifi
 console.log(boasvindas);
 console.log("".concat((1 + 1) * 30));
 console.log("Motor: ".concat(caracteristicas[0]));
+//CallBack
+function esperar3s(callback) {
+    setTimeout(function () {
+        callback('3s depois');
+    }, 3000);
+}
+esperar3s(function (resultado) {
+    console.log(resultado);
+});
+//Promise 
+function esperar3sPromise() {
+    return new Promise(function (resolve) {
+        setTimeout(function () {
+            resolve('3s depois promise');
+        }, 3000);
+    });
+}
+esperar3sPromise().then(function (dado) { return console.log(dado); });
+fetch('https://swapi.co/api/people/1').then(function (res) { return res.json(); }).then(function (personagem) { return personagem.filmes; }).then(function (films) { return fetch(films[0]); }).then(function (resFilm) { return resFilm.json(); }).then(function (filme) { return console.log(filme.title); })["catch"](function (err) { return console.log('Catch!!' + err); });
