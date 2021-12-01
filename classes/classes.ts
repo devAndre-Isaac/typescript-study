@@ -38,3 +38,21 @@ console.log(aniversario2)
 const casamento2 = new DataEsperta // posso omitir os ()
 casamento2.ano = 2017
 console.log(casamento2)
+
+//Desafio Classe
+
+class Produto {
+    constructor(public nome: string, public preco: number, public desconto: number = 0){
+        this.nome = nome
+    }
+}
+
+const prod1 = new Produto('acer', 2)
+prod1.nome = 'dell'
+console.log(prod1)
+console.log(prod1.nome)
+
+const prod2 = new Produto('apple', 2000, 5)
+prod2.nome = 'xiaomi'
+console.log(prod2)
+console.log(prod2.nome)
