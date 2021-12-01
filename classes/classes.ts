@@ -45,6 +45,10 @@ class Produto {
     constructor(public nome: string, public preco: number, public desconto: number = 0){
         this.nome = nome
     }
+
+    public resumo(): string {
+        return `${this.nome} custa ${this.preco} (${this.desconto * 100}% off)`
+    }
 }
 
 const prod1 = new Produto('acer', 2)
@@ -56,3 +60,6 @@ const prod2 = new Produto('apple', 2000, 5)
 prod2.nome = 'xiaomi'
 console.log(prod2)
 console.log(prod2.nome)
+
+const prod3 = new Produto('Caderno', 18.80, 4.20)
+console.log(prod2.resumo())

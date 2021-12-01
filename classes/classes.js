@@ -45,6 +45,9 @@ var Produto = /** @class */ (function () {
         this.desconto = desconto;
         this.nome = nome;
     }
+    Produto.prototype.resumo = function () {
+        return "".concat(this.nome, " custa ").concat(this.preco, " (").concat(this.desconto * 100, "% off)");
+    };
     return Produto;
 }());
 var prod1 = new Produto('acer', 2);
@@ -55,3 +58,5 @@ var prod2 = new Produto('apple', 2000, 5);
 prod2.nome = 'xiaomi';
 console.log(prod2);
 console.log(prod2.nome);
+var prod3 = new Produto('Caderno', 18.80, 4.20);
+console.log(prod2.resumo());
