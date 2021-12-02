@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Data = /** @class */ (function () {
     function Data(dia, mes, ano) {
         if (dia === void 0) { dia = 1; }
@@ -101,3 +116,20 @@ console.log(carro1.frear());
 // console.log('maxima' + carro1.velocidadeMaxima)
 // carro1.alterarVelocidade(150)
 // console.log('atual' + carro1.velocidadeAtual)
+var Ferrari = /** @class */ (function (_super) {
+    __extends(Ferrari, _super);
+    function Ferrari() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Ferrari.prototype.acelerar = function () {
+        return this.alterarVelocidade(20);
+    };
+    Ferrari.prototype.frear = function () {
+        return this.alterarVelocidade(-15);
+    };
+    return Ferrari;
+}(Carro));
+var f40 = new Ferrari('Ferrari', 'f40', 320);
+console.log("".concat(f40.marca, " ").concat(f40.modelo));
+console.log(f40.acelerar());
+console.log(f40.frear());
