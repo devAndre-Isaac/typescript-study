@@ -45,9 +45,11 @@ class Produto {
     constructor(public nome: string, public preco: number, public desconto: number = 0){
         this.nome = nome
     }
-
-    public resumo(): string {
-        return `${this.nome} custa ${this.preco} (${this.desconto * 100}% off)`
+     precoComDesconto(): number{
+        return this.preco * (1 - this.desconto)
+    }
+     resumo(): string {
+        return `${this.precoComDesconto()}`
     }
 }
 

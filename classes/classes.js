@@ -45,8 +45,11 @@ var Produto = /** @class */ (function () {
         this.desconto = desconto;
         this.nome = nome;
     }
+    Produto.prototype.precoComDesconto = function () {
+        return this.preco * (1 - this.desconto);
+    };
     Produto.prototype.resumo = function () {
-        return "".concat(this.nome, " custa ").concat(this.preco, " (").concat(this.desconto * 100, "% off)");
+        return "".concat(this.precoComDesconto());
     };
     return Produto;
 }());
