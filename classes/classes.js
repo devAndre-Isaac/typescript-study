@@ -118,8 +118,8 @@ console.log(carro1.frear());
 // console.log('atual' + carro1.velocidadeAtual)
 var Ferrari = /** @class */ (function (_super) {
     __extends(Ferrari, _super);
-    function Ferrari() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Ferrari(modelo, velocidadeMaxima) {
+        return _super.call(this, 'Ferrari', modelo, velocidadeMaxima) || this;
     }
     Ferrari.prototype.acelerar = function () {
         return this.alterarVelocidade(20);
@@ -129,7 +129,7 @@ var Ferrari = /** @class */ (function (_super) {
     };
     return Ferrari;
 }(Carro));
-var f40 = new Ferrari('Ferrari', 'f40', 320);
+var f40 = new Ferrari('f40', 320);
 console.log("".concat(f40.marca, " ").concat(f40.modelo));
 console.log(f40.acelerar());
 console.log(f40.frear());
