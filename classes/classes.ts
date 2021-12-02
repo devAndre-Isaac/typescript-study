@@ -66,7 +66,7 @@ console.log(prod2.nome)
 const prod3 = new Produto('Caderno', 18.80, 4.20)
 console.log(prod2.resumo())
 
-
+// herança
 class Carro{
     private velocidadeAtual: number = 0
 
@@ -112,6 +112,8 @@ console.log(carro1.frear())
 // carro1.alterarVelocidade(150)
 // console.log('atual' + carro1.velocidadeAtual)
 
+// herança extends and super
+
 class Ferrari extends Carro{
     constructor(modelo: string, velocidadeMaxima: number){
         super('Ferrari', modelo, velocidadeMaxima)
@@ -129,3 +131,26 @@ console.log(`${f40.marca} ${f40.modelo}`)
 
 console.log(f40.acelerar())
 console.log(f40.frear())
+
+
+//getter and setters
+
+class Pessoa{
+    private _idade: number = 0
+
+    get idade(): number {
+        return this._idade
+    }
+    set idade(valor: number){
+        if(valor>= 0 && valor<= 120){
+            this._idade = valor
+        }
+    }
+}
+
+const pessoa1 = new Pessoa
+pessoa1.idade = 10
+console.log(pessoa1.idade)
+
+pessoa1.idade = -4
+console.log(pessoa1.idade)

@@ -78,6 +78,7 @@ console.log(prod2);
 console.log(prod2.nome);
 var prod3 = new Produto('Caderno', 18.80, 4.20);
 console.log(prod2.resumo());
+// herança
 var Carro = /** @class */ (function () {
     function Carro(marca, modelo, velocidadeMaxima) {
         this.marca = marca;
@@ -116,6 +117,7 @@ console.log(carro1.frear());
 // console.log('maxima' + carro1.velocidadeMaxima)
 // carro1.alterarVelocidade(150)
 // console.log('atual' + carro1.velocidadeAtual)
+// herança extends and super
 var Ferrari = /** @class */ (function (_super) {
     __extends(Ferrari, _super);
     function Ferrari(modelo, velocidadeMaxima) {
@@ -133,3 +135,27 @@ var f40 = new Ferrari('f40', 320);
 console.log("".concat(f40.marca, " ").concat(f40.modelo));
 console.log(f40.acelerar());
 console.log(f40.frear());
+//getter and setters
+var Pessoa = /** @class */ (function () {
+    function Pessoa() {
+        this._idade = 0;
+    }
+    Object.defineProperty(Pessoa.prototype, "idade", {
+        get: function () {
+            return this._idade;
+        },
+        set: function (valor) {
+            if (valor >= 0 && valor <= 120) {
+                this._idade = valor;
+            }
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return Pessoa;
+}());
+var pessoa1 = new Pessoa;
+pessoa1.idade = 10;
+console.log(pessoa1.idade);
+pessoa1.idade = -4;
+console.log(pessoa1.idade);
