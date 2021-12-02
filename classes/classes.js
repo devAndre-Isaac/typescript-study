@@ -63,3 +63,41 @@ console.log(prod2);
 console.log(prod2.nome);
 var prod3 = new Produto('Caderno', 18.80, 4.20);
 console.log(prod2.resumo());
+var Carro = /** @class */ (function () {
+    function Carro(marca, modelo, velocidadeMaxima) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidadeMaxima = velocidadeMaxima;
+        this.velocidadeAtual = 0;
+    }
+    Carro.prototype.alterarVelocidade = function (delta) {
+        var novaVelocidade = this.velocidadeAtual + delta;
+        var velocidadeValida = novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima;
+        if (velocidadeValida) {
+            this.velocidadeAtual = novaVelocidade;
+        }
+        else {
+            this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima : 0;
+        }
+        return this.velocidadeAtual;
+    };
+    Carro.prototype.acelerar = function () {
+        return this.alterarVelocidade(5);
+    };
+    Carro.prototype.frear = function () {
+        return this.alterarVelocidade(-5);
+    };
+    return Carro;
+}());
+var carro1 = new Carro('ford', 'ka', 185);
+Array(50).fill(0).forEach(function () { carro1.acelerar(); });
+console.log(carro1.acelerar());
+Array(20).fill(0).forEach(function () { carro1.frear(); });
+console.log(carro1.frear());
+//simular erros
+// carro1.velocidadeAtual = 300
+// console.log('atual' + carro1.velocidadeAtual)
+// carro1.velocidadeMaxima = 500
+// console.log('maxima' + carro1.velocidadeMaxima)
+// carro1.alterarVelocidade(150)
+// console.log('atual' + carro1.velocidadeAtual)

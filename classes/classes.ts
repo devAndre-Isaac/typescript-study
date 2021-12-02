@@ -65,3 +65,49 @@ console.log(prod2.nome)
 
 const prod3 = new Produto('Caderno', 18.80, 4.20)
 console.log(prod2.resumo())
+
+
+class Carro{
+    private velocidadeAtual: number = 0
+
+    constructor(public marca: string, public modelo: string, private velocidadeMaxima: number){
+    }
+
+    private alterarVelocidade(delta: number): number {
+        
+        const novaVelocidade = this.velocidadeAtual + delta
+        const velocidadeValida = novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima
+       
+        if(velocidadeValida){
+            this.velocidadeAtual = novaVelocidade
+        } else {
+            this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima : 0
+        }
+        return this.velocidadeAtual
+    }
+
+    public acelerar(): number{
+        return this.alterarVelocidade(5)
+    }
+    public frear(): number{
+        return this.alterarVelocidade(-5)
+    }
+}
+
+const carro1 = new Carro('ford', 'ka', 185)
+
+Array(50).fill(0).forEach(()=>{carro1.acelerar()})
+console.log(carro1.acelerar())
+
+Array(20).fill(0).forEach(()=>{carro1.frear()})
+console.log(carro1.frear())
+
+//simular erros
+// carro1.velocidadeAtual = 300
+// console.log('atual' + carro1.velocidadeAtual)
+
+// carro1.velocidadeMaxima = 500
+// console.log('maxima' + carro1.velocidadeMaxima)
+
+// carro1.alterarVelocidade(150)
+// console.log('atual' + carro1.velocidadeAtual)
