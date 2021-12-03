@@ -159,3 +159,19 @@ pessoa1.idade = 10;
 console.log(pessoa1.idade);
 pessoa1.idade = -4;
 console.log(pessoa1.idade);
+// Atributos e metodos estáticos
+var Matematica = /** @class */ (function () {
+    function Matematica() {
+    }
+    Matematica.areacirc = function (raio) {
+        return this.PI * raio * raio;
+    };
+    Matematica.PI = 3.1416;
+    return Matematica;
+}());
+// const m1 = new Matematica()
+// m1.PI = 4.2
+// console.log(m1.areacirc(4))
+// const m2 = new Matematica()
+// console.log(m1.areacirc(4))
+console.log(Matematica.areacirc(4));
