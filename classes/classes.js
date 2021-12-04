@@ -234,3 +234,15 @@ var Unico = /** @class */ (function () {
 }());
 // const errado = new Unico()
 console.log(Unico.getInstance().agora());
+// Somente Leitura
+var Aviao = /** @class */ (function () {
+    function Aviao(modelo, prefixo) {
+        this.prefixo = prefixo;
+        this.modelo = modelo;
+    }
+    return Aviao;
+}());
+var turboHelice = new Aviao('Tu-114', 'PT-4d');
+// turboHelice.modelo ='DC-8'
+// turboHelice.prefixo ='PT-DEF'
+console.log(turboHelice);
