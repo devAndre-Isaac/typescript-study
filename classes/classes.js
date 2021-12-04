@@ -175,3 +175,47 @@ var Matematica = /** @class */ (function () {
 // const m2 = new Matematica()
 // console.log(m1.areacirc(4))
 console.log(Matematica.areacirc(4));
+//Classe Abstrata
+var Calculo = /** @class */ (function () {
+    function Calculo() {
+        this.resultado = 0;
+    }
+    Calculo.prototype.getResultado = function () {
+        return this.resultado;
+    };
+    return Calculo;
+}());
+var Soma = /** @class */ (function (_super) {
+    __extends(Soma, _super);
+    function Soma() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Soma.prototype.executar = function () {
+        var numeros = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            numeros[_i] = arguments[_i];
+        }
+        this.resultado = numeros.reduce(function (t, a) { return t + a; });
+    };
+    return Soma;
+}(Calculo));
+var Multiplicar = /** @class */ (function (_super) {
+    __extends(Multiplicar, _super);
+    function Multiplicar() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Multiplicar.prototype.executar = function () {
+        var numeros = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            numeros[_i] = arguments[_i];
+        }
+        this.resultado = numeros.reduce(function (t, a) { return t * a; });
+    };
+    return Multiplicar;
+}(Calculo));
+var c1 = new Soma();
+c1.executar(2, 3, 4, 5);
+console.log(c1.getResultado());
+c1 = new Multiplicar();
+c1.executar(2, 3, 4, 5);
+console.log(c1.getResultado());
