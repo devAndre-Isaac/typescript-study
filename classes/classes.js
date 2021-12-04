@@ -219,3 +219,18 @@ console.log(c1.getResultado());
 c1 = new Multiplicar();
 c1.executar(2, 3, 4, 5);
 console.log(c1.getResultado());
+//Construtor privado & Singleton
+var Unico = /** @class */ (function () {
+    function Unico() {
+    }
+    Unico.getInstance = function () {
+        return Unico.instance;
+    };
+    Unico.prototype.agora = function () {
+        return new Date;
+    };
+    Unico.instance = new Unico;
+    return Unico;
+}());
+// const errado = new Unico()
+console.log(Unico.getInstance().agora());
