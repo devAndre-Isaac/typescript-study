@@ -1,4 +1,6 @@
-namespace Areas{
+namespace Geometria{
+
+export namespace Area{
     const PI = 3.14
 
     export function circunferencia(raio: number){
@@ -9,7 +11,9 @@ namespace Areas{
         return base * altura
     }
 }
+}
 const PI = 2.99
-console.log(Areas.circunferencia(10))
-console.log(Areas.retangulo(10,20)) 
+console.log(Geometria.Area.circunferencia(10))
+console.log(Geometria.Area.retangulo(10,20)) 
 console.log(PI)
+
