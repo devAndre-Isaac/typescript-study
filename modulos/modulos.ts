@@ -5,3 +5,6 @@ import retangulo from "./retangulos";
 
 console.log(circ(7))
 console.log(retangulo(7,2))
+
+const { digaOi} = require('./novo')
+console.log(digaOi('Ana'))
