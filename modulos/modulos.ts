@@ -1,5 +1,7 @@
-import { areaRetangulo } from "./retangulos";
-import { areaCircunferencia } from "./circunferencia";
+// import { areaRetangulo } from "./retangulos";
+// import { areaCircunferencia } from "./circunferencia";
+import { areaCircunferencia as circ} from "./circunferencia";
+import retangulo from "./retangulos";
 
-console.log(areaCircunferencia(7))
-console.log(areaRetangulo(7,2))
+console.log(circ(7))
+console.log(retangulo(7,2))
