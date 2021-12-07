@@ -68,3 +68,17 @@ var AbstrataABD = /** @class */ (function () {
     AbstrataABD.prototype.b = function () { };
     return AbstrataABD;
 }());
+Object.prototype.log = function () {
+    console.log(this.toString());
+};
+var x = 2;
+var y = 3;
+var z = 4;
+x.log();
+y.log();
+z.log();
+var clie = { nome: 'pedro', toString: function () {
+        return this.nome;
+    }
+};
+clie.log();
