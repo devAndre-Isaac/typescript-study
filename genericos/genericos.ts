@@ -87,7 +87,7 @@ const d2 = new Data(4, 2, 2022);
 console.log(new DiferencaEntreDatas(d1, d2).executar());
 
 //Desafio Classes com Generics
-class Fila<T> {
+class Fila<T extends number | string> {
   private fila: Array<T>;
   constructor(...args: T[]) {
     this.fila = args;
@@ -118,3 +118,8 @@ console.log(fila.proximo());
 console.log(fila.proximo());
 
 fila.imprimir();
+
+const novaFila = new Fila<number>(1,2,3)
+novaFila.imprimir()
+
+// const outraFila = new Fila<boolean>(true, false)
