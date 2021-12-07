@@ -42,3 +42,16 @@ meuCliente.nome = 'Han'
 saudarComOla(meuCliente)
 meuCliente.saudar('Solo')
 console.log(meuCliente.ultimaCompra)
+
+//Interface funções
+
+interface FuncaoCalculo {
+    (a: number, b: number): number
+}
+
+let potencia: FuncaoCalculo
+
+potencia = function (base: number, exp: number): number {
+    return Array(exp).fill(base).reduce((t, a) => t*a)
+}
+console.log(potencia(2, 3))
