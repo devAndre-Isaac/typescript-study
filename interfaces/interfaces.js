@@ -6,9 +6,13 @@ function mudarNome(pessoa) {
 }
 var pessoa = {
     nome: 'Joao',
-    idade: 27
+    idade: 27,
+    saudar: function (sobrenome) {
+        console.log('Ola meu nome é' + this.nome + ' ' + sobrenome);
+    }
 };
 saudarComOla(pessoa);
 mudarNome(pessoa);
 saudarComOla(pessoa);
-saudarComOla({ nome: 'Jonas', idade: 27, altura: 1.75 });
+pessoa.saudar('Skywalker');
+// saudarComOla({nome: 'Jonas', idade: 27, altura: 1.75})
