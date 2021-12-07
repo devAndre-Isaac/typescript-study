@@ -16,16 +16,16 @@ var __extends = (this && this.__extends) || (function () {
 function echo(obj) {
     return obj;
 }
-console.log(echo('Joao').lenght);
+console.log(echo("Joao").lenght);
 console.log(echo(25));
-console.log(echo({ nome: 'Joao' }));
+console.log(echo({ nome: "Joao" }));
 //Usando generics
 function echoMelhorado(obj) {
     return obj;
 }
-console.log(echoMelhorado('Joao').length);
+console.log(echoMelhorado("Joao").length);
 console.log(echoMelhorado(25));
-console.log(echoMelhorado({ nome: 'Joao' }).nome);
+console.log(echoMelhorado({ nome: "Joao" }).nome);
 //Generics disponiveis na API
 var avaliacoes = [10, 9, 7];
 avaliacoes.push(8.4);
@@ -37,17 +37,21 @@ function imprimir(args) {
 }
 imprimir([1, 2, 3]);
 imprimir([1, 2, 3]);
-imprimir(['1', '2', '3']);
-imprimir([{
-        nome: 'Fulano',
+imprimir(["1", "2", "3"]);
+imprimir([
+    {
+        nome: "Fulano",
         idade: 3
-    }]);
-imprimir([{
-        nome: 'Fulano',
+    },
+]);
+imprimir([
+    {
+        nome: "Fulano",
         idade: 3
-    }]);
+    },
+]);
 var chamarEcho = echoMelhorado;
-console.log(chamarEcho('Alguma coisa'));
+console.log(chamarEcho("Alguma coisa"));
 // Class com Generics
 var OperacaoBinaria = /** @class */ (function () {
     function OperacaoBinaria(operando1, operando2) {
@@ -92,3 +96,38 @@ var DiferencaEntreDatas = /** @class */ (function (_super) {
 var d1 = new Data(1, 2, 2020);
 var d2 = new Data(4, 2, 2022);
 console.log(new DiferencaEntreDatas(d1, d2).executar());
+//Desafio Classes com Generics
+var Fila = /** @class */ (function () {
+    function Fila() {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        this.fila = args;
+    }
+    Fila.prototype.entrar = function (elemento) {
+        this.fila.push(elemento);
+    };
+    Fila.prototype.proximo = function () {
+        if (this.fila.length >= 0 && this.fila[0]) {
+            var primeiro = this.fila[0];
+            this.fila.splice(0, 1);
+            return primeiro;
+        }
+        else {
+            return null;
+        }
+    };
+    Fila.prototype.imprimir = function () {
+        console.log(this.fila);
+    };
+    return Fila;
+}());
+var fila = new Fila("Gui", "Andre", "Ana", "Lu");
+fila.imprimir();
+fila.entrar("Rafael");
+fila.imprimir();
+console.log(fila.proximo());
+console.log(fila.proximo());
+console.log(fila.proximo());
+fila.imprimir();
