@@ -37,3 +37,34 @@ potencia = function (base, exp) {
     return Array(exp).fill(base).reduce(function (t, a) { return t * a; });
 };
 console.log(potencia(2, 3));
+var RealA = /** @class */ (function () {
+    function RealA() {
+    }
+    RealA.prototype.a = function () { };
+    return RealA;
+}());
+var RealAB = /** @class */ (function () {
+    function RealAB() {
+    }
+    RealAB.prototype.a = function () { };
+    RealAB.prototype.b = function () { };
+    return RealAB;
+}());
+var RealABC = /** @class */ (function () {
+    function RealABC() {
+    }
+    RealABC.prototype.a = function () { };
+    RealABC.prototype.b = function () { };
+    RealABC.prototype.c = function () { };
+    return RealABC;
+}());
+function teste(b) {
+}
+teste(new RealABC);
+var AbstrataABD = /** @class */ (function () {
+    function AbstrataABD() {
+    }
+    AbstrataABD.prototype.a = function () { };
+    AbstrataABD.prototype.b = function () { };
+    return AbstrataABD;
+}());
