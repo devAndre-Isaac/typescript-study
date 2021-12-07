@@ -16,3 +16,19 @@ mudarNome(pessoa);
 saudarComOla(pessoa);
 pessoa.saudar('Skywalker');
 // saudarComOla({nome: 'Jonas', idade: 27, altura: 1.75})
+//Usando classes
+var Cliente = /** @class */ (function () {
+    function Cliente() {
+        this.nome = '';
+        this.ultimaCompra = new Date;
+    }
+    Cliente.prototype.saudar = function (sobrenome) {
+        console.log('Ola meu nome é' + this.nome + ' ' + sobrenome);
+    };
+    return Cliente;
+}());
+var meuCliente = new Cliente;
+meuCliente.nome = 'Han';
+saudarComOla(meuCliente);
+meuCliente.saudar('Solo');
+console.log(meuCliente.ultimaCompra);
