@@ -31,3 +31,5 @@ imprimir([{
         nome: 'Fulano',
         idade: 3
     }]);
+var chamarEcho = echoMelhorado;
+console.log(chamarEcho('Alguma coisa'));

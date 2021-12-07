@@ -40,3 +40,8 @@ imprimir<Aluno>([{
     nome: 'Fulano',
     idade: 3
 }])
+
+// Tipo usando generics
+type Echo = <T>(data: T) => T
+const chamarEcho: Echo = echoMelhorado
+console.log(chamarEcho<string>('Alguma coisa'))
