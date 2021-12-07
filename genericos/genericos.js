@@ -16,3 +16,18 @@ var avaliacoes = [10, 9, 7];
 avaliacoes.push(8.4);
 // avaliacoes.push('11.4')
 console.log(avaliacoes);
+// Array
+function imprimir(args) {
+    args.forEach(function (elemento) { return console.log(elemento); });
+}
+imprimir([1, 2, 3]);
+imprimir([1, 2, 3]);
+imprimir(['1', '2', '3']);
+imprimir([{
+        nome: 'Fulano',
+        idade: 3
+    }]);
+imprimir([{
+        nome: 'Fulano',
+        idade: 3
+    }]);

@@ -19,3 +19,24 @@ const avaliacoes: Array<number> = [10, 9, 7]
 avaliacoes.push(8.4)
 // avaliacoes.push('11.4')
 console.log(avaliacoes)
+
+// Array
+
+function imprimir<T>(args: T[]){
+    args.forEach(elemento => console.log(elemento))
+}
+
+imprimir([1, 2, 3])
+imprimir<number>([1, 2, 3])
+imprimir<string>(['1', '2', '3'])
+imprimir<{nome: string, idade: number}>([{
+    nome: 'Fulano',
+    idade: 3
+}])
+
+
+type Aluno = {nome: string, idade: number}
+imprimir<Aluno>([{
+    nome: 'Fulano',
+    idade: 3
+}])
