@@ -133,4 +133,37 @@ console.log(fila.proximo());
 fila.imprimir();
 var novaFila = new Fila(1, 2, 3);
 novaFila.imprimir();
-// const outraFila = new Fila<boolean>(true, false)
+var Mapa = /** @class */ (function () {
+    function Mapa() {
+        this.itens = new Array();
+    }
+    Mapa.prototype.obter = function (chave) {
+        var resultado = this.itens.filter(function (i) { return i.chave === chave; });
+        return resultado ? resultado[0] : null;
+    };
+    Mapa.prototype.colocar = function (par) {
+        var encontrado = this.obter(par.chave);
+        if (encontrado) {
+            encontrado.valor = par.valor;
+        }
+        else {
+            this.itens.push(par);
+        }
+    };
+    Mapa.prototype.limpar = function () {
+        this.itens = new Array();
+    };
+    Mapa.prototype.imprimir = function () {
+        console.log(this.itens);
+    };
+    return Mapa;
+}());
+var mapa = new Mapa();
+mapa.colocar({ chave: 1, valor: "Pedro" });
+mapa.colocar({ chave: 2, valor: "Rebeca" });
+mapa.colocar({ chave: 3, valor: "Maria" });
+mapa.colocar({ chave: 1, valor: "Gustavo" });
+console.log(mapa.obter(2));
+mapa.imprimir();
+mapa.limpar();
+mapa.imprimir();
