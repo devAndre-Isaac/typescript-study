@@ -71,3 +71,24 @@ var SomaBinaria = /** @class */ (function (_super) {
     return SomaBinaria;
 }(OperacaoBinaria));
 console.log(new SomaBinaria(2, 3).executar());
+var DiferencaEntreDatas = /** @class */ (function (_super) {
+    __extends(DiferencaEntreDatas, _super);
+    function DiferencaEntreDatas() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    DiferencaEntreDatas.prototype.getTime = function (data) {
+        var dia = data.dia, mes = data.mes, ano = data.ano;
+        return new Date("".concat(mes, "/").concat(dia, "/").concat(ano)).getTime();
+    };
+    DiferencaEntreDatas.prototype.executar = function () {
+        var t1 = this.getTime(this.operando1);
+        var t2 = this.getTime(this.operando2);
+        var diferenca = Math.abs(t1 - t2);
+        var dia = 1000 * 60 * 60 * 24;
+        return "".concat(Math.ceil(diferenca / dia), " dia(s)");
+    };
+    return DiferencaEntreDatas;
+}(OperacaoBinaria));
+var d1 = new Data(1, 2, 2020);
+var d2 = new Data(4, 2, 2022);
+console.log(new DiferencaEntreDatas(d1, d2).executar());
