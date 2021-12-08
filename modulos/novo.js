@@ -1,5 +1,7 @@
+"use strict";
 module.exports = {
-    digaOi: function (nome) {
+    digaOi(nome) {
         return 'oi' + nome;
     }
 };
+//# sourceMappingURL=novo.js.map

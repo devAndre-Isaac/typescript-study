@@ -1,6 +1,7 @@
+"use strict";
 var Geometria;
 (function (Geometria) {
-    var Area;
+    let Area;
     (function (Area) {
         function retangulo(base, altura) {
             return base * altura;
@@ -8,3 +9,4 @@ var Geometria;
         Area.retangulo = retangulo;
     })(Area = Geometria.Area || (Geometria.Area = {}));
 })(Geometria || (Geometria = {}));
+//# sourceMappingURL=geometriaRect.js.map

@@ -1,18 +1,4 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+"use strict";
 function echo(obj) {
     return obj;
 }
@@ -27,13 +13,13 @@ console.log(echoMelhorado("Joao").length);
 console.log(echoMelhorado(25));
 console.log(echoMelhorado({ nome: "Joao" }).nome);
 //Generics disponiveis na API
-var avaliacoes = [10, 9, 7];
+const avaliacoes = [10, 9, 7];
 avaliacoes.push(8.4);
 // avaliacoes.push('11.4')
 console.log(avaliacoes);
 // Array
 function imprimir(args) {
-    args.forEach(function (elemento) { return console.log(elemento); });
+    args.forEach((elemento) => console.log(elemento));
 }
 imprimir([1, 2, 3]);
 imprimir([1, 2, 3]);
@@ -41,89 +27,73 @@ imprimir(["1", "2", "3"]);
 imprimir([
     {
         nome: "Fulano",
-        idade: 3
+        idade: 3,
     },
 ]);
 imprimir([
     {
         nome: "Fulano",
-        idade: 3
+        idade: 3,
     },
 ]);
-var chamarEcho = echoMelhorado;
+const chamarEcho = echoMelhorado;
 console.log(chamarEcho("Alguma coisa"));
 // Class com Generics
-var OperacaoBinaria = /** @class */ (function () {
-    function OperacaoBinaria(operando1, operando2) {
+class OperacaoBinaria {
+    constructor(operando1, operando2) {
         this.operando1 = operando1;
         this.operando2 = operando2;
     }
-    return OperacaoBinaria;
-}());
+}
 // console.log(new OperacaoBinaria('Bom', 'dia'). executar())
 // console.log(new OperacaoBinaria(3, 7). executar())
 // console.log(new OperacaoBinaria('Opa', 7). executar())
 // console.log(new OperacaoBinaria({}, {}). executar())
-var SomaBinaria = /** @class */ (function (_super) {
-    __extends(SomaBinaria, _super);
-    function SomaBinaria() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    SomaBinaria.prototype.executar = function () {
+class SomaBinaria extends OperacaoBinaria {
+    executar() {
         return this.operando1 + this.operando2;
-    };
-    return SomaBinaria;
-}(OperacaoBinaria));
-console.log(new SomaBinaria(2, 3).executar());
-var DiferencaEntreDatas = /** @class */ (function (_super) {
-    __extends(DiferencaEntreDatas, _super);
-    function DiferencaEntreDatas() {
-        return _super !== null && _super.apply(this, arguments) || this;
     }
-    DiferencaEntreDatas.prototype.getTime = function (data) {
-        var dia = data.dia, mes = data.mes, ano = data.ano;
-        return new Date("".concat(mes, "/").concat(dia, "/").concat(ano)).getTime();
-    };
-    DiferencaEntreDatas.prototype.executar = function () {
-        var t1 = this.getTime(this.operando1);
-        var t2 = this.getTime(this.operando2);
-        var diferenca = Math.abs(t1 - t2);
-        var dia = 1000 * 60 * 60 * 24;
-        return "".concat(Math.ceil(diferenca / dia), " dia(s)");
-    };
-    return DiferencaEntreDatas;
-}(OperacaoBinaria));
-var d1 = new Data(1, 2, 2020);
-var d2 = new Data(4, 2, 2022);
+}
+console.log(new SomaBinaria(2, 3).executar());
+class DiferencaEntreDatas extends OperacaoBinaria {
+    getTime(data) {
+        let { dia, mes, ano } = data;
+        return new Date(`${mes}/${dia}/${ano}`).getTime();
+    }
+    executar() {
+        const t1 = this.getTime(this.operando1);
+        const t2 = this.getTime(this.operando2);
+        const diferenca = Math.abs(t1 - t2);
+        const dia = 1000 * 60 * 60 * 24;
+        return `${Math.ceil(diferenca / dia)} dia(s)`;
+    }
+}
+const d1 = new Data(1, 2, 2020);
+const d2 = new Data(4, 2, 2022);
 console.log(new DiferencaEntreDatas(d1, d2).executar());
 //Desafio Classes com Generics
-var Fila = /** @class */ (function () {
-    function Fila() {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
+class Fila {
+    constructor(...args) {
         this.fila = args;
     }
-    Fila.prototype.entrar = function (elemento) {
+    entrar(elemento) {
         this.fila.push(elemento);
-    };
-    Fila.prototype.proximo = function () {
+    }
+    proximo() {
         if (this.fila.length >= 0 && this.fila[0]) {
-            var primeiro = this.fila[0];
+            const primeiro = this.fila[0];
             this.fila.splice(0, 1);
             return primeiro;
         }
         else {
             return null;
         }
-    };
-    Fila.prototype.imprimir = function () {
+    }
+    imprimir() {
         console.log(this.fila);
-    };
-    return Fila;
-}());
-var fila = new Fila("Gui", "Andre", "Ana", "Lu");
+    }
+}
+const fila = new Fila("Gui", "Andre", "Ana", "Lu");
 fila.imprimir();
 fila.entrar("Rafael");
 fila.imprimir();
@@ -131,34 +101,33 @@ console.log(fila.proximo());
 console.log(fila.proximo());
 console.log(fila.proximo());
 fila.imprimir();
-var novaFila = new Fila(1, 2, 3);
+const novaFila = new Fila(1, 2, 3);
 novaFila.imprimir();
-var Mapa = /** @class */ (function () {
-    function Mapa() {
+class Mapa {
+    constructor() {
         this.itens = new Array();
     }
-    Mapa.prototype.obter = function (chave) {
-        var resultado = this.itens.filter(function (i) { return i.chave === chave; });
+    obter(chave) {
+        const resultado = this.itens.filter((i) => i.chave === chave);
         return resultado ? resultado[0] : null;
-    };
-    Mapa.prototype.colocar = function (par) {
-        var encontrado = this.obter(par.chave);
+    }
+    colocar(par) {
+        const encontrado = this.obter(par.chave);
         if (encontrado) {
             encontrado.valor = par.valor;
         }
         else {
             this.itens.push(par);
         }
-    };
-    Mapa.prototype.limpar = function () {
+    }
+    limpar() {
         this.itens = new Array();
-    };
-    Mapa.prototype.imprimir = function () {
+    }
+    imprimir() {
         console.log(this.itens);
-    };
-    return Mapa;
-}());
-var mapa = new Mapa();
+    }
+}
+const mapa = new Mapa();
 mapa.colocar({ chave: 1, valor: "Pedro" });
 mapa.colocar({ chave: 2, valor: "Rebeca" });
 mapa.colocar({ chave: 3, valor: "Maria" });
@@ -167,3 +136,4 @@ console.log(mapa.obter(2));
 mapa.imprimir();
 mapa.limpar();
 mapa.imprimir();
+//# sourceMappingURL=genericos.js.map

@@ -1,83 +1,56 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+"use strict";
 // Exercício 1 - Classe
-var Moto = /** @class */ (function () {
-    function Moto(nome) {
+class Moto {
+    constructor(nome) {
         this.nome = nome;
         this.velocidade = 0;
     }
-    Moto.prototype.buzinar = function () {
+    buzinar() {
         console.log("toooot");
-    };
-    Moto.prototype.acelerar = function (delta) {
+    }
+    acelerar(delta) {
         this.velocidade = this.velocidade + delta;
-    };
-    return Moto;
-}());
-var moto = new Moto("Ducati");
+    }
+}
+const moto = new Moto("Ducati");
 moto.buzinar();
 console.log(moto.velocidade);
 moto.acelerar(30);
 console.log(moto.velocidade);
-var Objeto2D = /** @class */ (function () {
-    function Objeto2D(base, altura) {
-        if (base === void 0) { base = 0; }
-        if (altura === void 0) { altura = 0; }
+class Objeto2D {
+    constructor(base = 0, altura = 0) {
         this.base = base;
         this.altura = altura;
     }
-    return Objeto2D;
-}());
-var Retangulo = /** @class */ (function (_super) {
-    __extends(Retangulo, _super);
-    function Retangulo() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Retangulo.prototype.area = function () {
+}
+class Retangulo extends Objeto2D {
+    area() {
         return this.base * this.altura;
-    };
-    return Retangulo;
-}(Objeto2D));
-var retangulo = new Retangulo(5, 7);
+    }
+}
+const retangulo = new Retangulo(5, 7);
 retangulo.base = 10;
 console.log(retangulo.area());
-var Estagiario = /** @class */ (function () {
-    function Estagiario() {
+class Estagiario {
+    constructor() {
         this._primeiroNome = "";
     }
-    Object.defineProperty(Estagiario.prototype, "primeiroNome", {
-        get: function () {
-            return this._primeiroNome;
-        },
-        set: function (valor) {
-            if (valor.length >= 3) {
-                this._primeiroNome = valor;
-            }
-            else {
-                this._primeiroNome = "";
-            }
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return Estagiario;
-}());
-var estagiario = new Estagiario();
+    get primeiroNome() {
+        return this._primeiroNome;
+    }
+    set primeiroNome(valor) {
+        if (valor.length >= 3) {
+            this._primeiroNome = valor;
+        }
+        else {
+            this._primeiroNome = "";
+        }
+    }
+}
+const estagiario = new Estagiario();
 console.log(estagiario.primeiroNome);
 estagiario.primeiroNome = "Le";
 console.log(estagiario.primeiroNome);
 estagiario.primeiroNome = "andre";
 console.log(estagiario.primeiroNome);
+//# sourceMappingURL=desafio.js.map

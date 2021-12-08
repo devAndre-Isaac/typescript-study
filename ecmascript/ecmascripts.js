@@ -1,21 +1,13 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
+"use strict";
 ///let & const
-var seraQuePode = "?"; // hoisting
+let seraQuePode = "?"; // hoisting
 console.log(seraQuePode);
-var estaFrio = true;
+let estaFrio = true;
 if (estaFrio) {
-    var acao = "colocarCasaco";
+    let acao = "colocarCasaco";
     console.log(acao);
 }
-var cpf = "1234567678";
+const cpf = "1234567678";
 // cpf = '21243'
 console.log(cpf);
 var segredo = "externo";
@@ -27,7 +19,7 @@ revelar();
 console.log(segredo);
 {
     {
-        var def = "def";
+        const def = "def";
         console.log(def);
     }
 }
@@ -36,117 +28,116 @@ for (var i = 0; i < 10; i++) {
 }
 // console.log(i)
 //Arrow function
-var somar = function (n1, n2) {
+const somar = function (n1, n2) {
     return n1 + n2;
 };
 console.log(somar(1, 2));
-var subtrair = function (n1, n2) { return n1 - n2; };
+const subtrair = (n1, n2) => n1 - n2;
 console.log(subtrair(3, 313));
-var saudacao = function () { return console.log("ola"); };
+const saudacao = () => console.log("ola");
 saudacao();
-var falarCom = function (pessoa) { return console.log("ola", +pessoa); };
+const falarCom = (pessoa) => console.log("ola", +pessoa);
 falarCom("poe");
 //this
 function normalComThis() {
     console.log( /*this*/);
 }
-var normalComThisEspecial = normalComThis.bind("Abc");
+const normalComThisEspecial = normalComThis.bind("Abc");
 normalComThisEspecial();
 //this??
 console.log(this);
-var arrowComThis = function () { return console.log( /*this*/); };
+const arrowComThis = () => console.log( /*this*/);
 arrowComThis();
-var arrowComThisEspecial = normalComThis.bind("Abc");
+const arrowComThisEspecial = normalComThis.bind("Abc");
 arrowComThis();
 //parametro
-function contagemRegressiva(inicio, fim) {
-    if (inicio === void 0) { inicio = 3; }
-    if (fim === void 0) { fim = inicio - 5; }
+function contagemRegressiva(inicio = 3, fim = inicio - 5) {
     console.log(inicio);
     while (inicio >= 0) {
         inicio--;
         console.log(inicio);
     }
-    console.log('Fim');
+    console.log("Fim");
 }
 contagemRegressiva();
 contagemRegressiva(5);
 //Rest &Spred Operator
-var numbers = [1, 10, 99, -5];
-console.log(Math.max.apply(Math, numbers));
-var turmaA = ['joao', 'andre', 'abel'];
-var turmaB = __spreadArray(['fernando', 'miguel'], turmaA, true);
+const numbers = [1, 10, 99, -5];
+console.log(Math.max(...numbers));
+const turmaA = ["joao", "andre", "abel"];
+const turmaB = ["fernando", "miguel", ...turmaA];
 console.log(turmaB);
-function returnArray() {
-    var args = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        args[_i] = arguments[_i];
-    }
+function returnArray(...args) {
     return args;
 }
-var numeros = returnArray(1, 2, 3, 4, 5);
+const numeros = returnArray(1, 2, 3, 4, 5);
 console.log(numeros);
-console.log(returnArray.apply(void 0, numbers));
+console.log(returnArray(...numbers));
 //rest and spread (tupla)
-var tupla = [1, 'abc', false];
+const tupla = [1, "abc", false];
 function tuplaParam1(a, b, c) {
-    console.log("1) ".concat(a, " ").concat(b, " ").concat(c));
+    console.log(`1) ${a} ${b} ${c}`);
 }
-tuplaParam1.apply(void 0, tupla);
-function tuplaParam2() {
-    var params = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        params[_i] = arguments[_i];
-    }
+tuplaParam1(...tupla);
+function tuplaParam2(...params) {
     console.log(Array.isArray(params));
-    console.log("2) ".concat(params[0], " ").concat(params[1], " ").concat(params[2], " "));
+    console.log(`2) ${params[0]} ${params[1]} ${params[2]} `);
 }
-tuplaParam2.apply(void 0, tupla);
+tuplaParam2(...tupla);
 // destructuring (array)
-var caracteristicas = ['motor', 2021];
+const caracteristicas = ["motor", 2021];
 // const motor= caracteristicas[0]
 // const ano = caracteristicas[1]
-var motor = caracteristicas[0], ano = caracteristicas[1];
+const [motor, ano] = caracteristicas;
 console.log(ano);
 console.log(motor);
 //destructuring(obj)
-var item = {
-    nome: 'ssd',
+const item = {
+    nome: "ssd",
     preco: 200,
     caracteristicas: {
-        w: 'Importado'
-    }
+        w: "Importado",
+    },
 };
-var nomeItem = item.nome;
-var precoItem = item.preco;
-var n = item.nome, p = item.preco, w = item.caracteristicas.w;
+const nomeItem = item.nome;
+const precoItem = item.preco;
+const { nome: n, preco: p, caracteristicas: { w }, } = item;
 console.log(n);
 console.log(p);
 console.log(w);
 //template string
-var usuarioId = 'SuporteCoder';
-var notificacoes = '9';
+const usuarioId = "SuporteCoder";
+const notificacoes = "9";
 // const boasVindas = 'Boas Vindas' + usuarioId + 'Notificacoes:' + notificacoes
-var boasvindas = "Boas vindas ".concat(usuarioId, ",\n                    Notificacoes: ").concat(parseInt(notificacoes) > 9 ? '  +9' : notificacoes, "\n");
+const boasvindas = `Boas vindas ${usuarioId},
+                    Notificacoes: ${parseInt(notificacoes) > 9 ? "  +9" : notificacoes}
+`;
 console.log(boasvindas);
-console.log("".concat((1 + 1) * 30));
-console.log("Motor: ".concat(caracteristicas[0]));
+console.log(`${(1 + 1) * 30}`);
+console.log(`Motor: ${caracteristicas[0]}`);
 //CallBack
 function esperar3s(callback) {
-    setTimeout(function () {
-        callback('3s depois');
+    setTimeout(() => {
+        callback("3s depois");
     }, 3000);
 }
 esperar3s(function (resultado) {
     console.log(resultado);
 });
-//Promise 
+//Promise
 function esperar3sPromise() {
-    return new Promise(function (resolve) {
-        setTimeout(function () {
-            resolve('3s depois promise');
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("3s depois promise");
         }, 3000);
     });
 }
-esperar3sPromise().then(function (dado) { return console.log(dado); });
-fetch('https://swapi.co/api/people/1').then(function (res) { return res.json(); }).then(function (personagem) { return personagem.filmes; }).then(function (films) { return fetch(films[0]); }).then(function (resFilm) { return resFilm.json(); }).then(function (filme) { return console.log(filme.title); })["catch"](function (err) { return console.log('Catch!!' + err); });
+esperar3sPromise().then((dado) => console.log(dado));
+fetch("https://swapi.co/api/people/1")
+    .then((res) => res.json())
+    .then((personagem) => personagem.filmes)
+    .then((films) => fetch(films[0]))
+    .then((resFilm) => resFilm.json())
+    .then((filme) => console.log(filme.title))
+    .catch((err) => console.log("Catch!!" + err));
+//# sourceMappingURL=ecmascripts.js.map

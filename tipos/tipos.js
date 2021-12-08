@@ -1,24 +1,23 @@
 "use strict";
-exports.__esModule = true;
-var idade = 27;
+let idade = 27;
 idade = 27.2;
 console.log(idade);
-var possuiHobbies = false;
+let possuiHobbies = false;
 //possuiHobbies = 1
 console.log(possuiHobbies);
-var minhaIdade;
+let minhaIdade;
 minhaIdade = 27;
 console.log(typeof minhaIdade);
 // minhaIdade = '27'
 // console.log(typeof minhaIdade)]
 //aray
-var hobbies = ["cozinha", "Praticar Esportes"];
+let hobbies = ["cozinha", "Praticar Esportes"];
 console.log(hobbies[0]);
 console.log(typeof hobbies);
 hobbies = [100, 200, 300];
 console.log(hobbies);
 //tuplas
-var endereco = ["av principal", 99];
+let endereco = ["av principal", 99];
 console.log(endereco);
 endereco = ["a", 0];
 //enums
@@ -31,18 +30,18 @@ var Cor;
     Cor[Cor["Amarelo"] = 4] = "Amarelo";
     Cor[Cor["Vermelho"] = 100] = "Vermelho";
 })(Cor || (Cor = {}));
-var minhaCor = Cor.Verde;
+let minhaCor = Cor.Verde;
 console.log(minhaCor);
 console.log(Cor.Azul);
 console.log(Cor.Laranja, Cor.Amarelo);
 console.log(Cor.Verde, Cor.Vermelho);
-var nome = "andre";
+// let nome = "andre";
 //any
-var carro = "BMW";
+let carro = "BMW";
 console.log(carro);
 carro = {
     marca: "bmw",
-    ano: 2019
+    ano: 2019,
 };
 console.log(carro);
 //funçoes
@@ -59,18 +58,18 @@ function multiplicar(numA, numB) {
 }
 console.log(multiplicar(2, 2));
 //tipo função
-var test = function (a, b) {
+const test = function (a, b) {
     return false;
 };
-var calculo;
+let calculo;
 // calculo = digaOi
 // calculo()
 calculo = multiplicar;
 console.log(calculo(5, 6));
 //objetos
-var usuario = {
+let usuario = {
     nome: "joao",
-    idade: 27
+    idade: 27,
 };
 console.log(usuario);
 // usuario = {}
@@ -80,20 +79,96 @@ console.log(usuario);
 // }
 usuario = {
     nome: "Tide",
-    idade: 22
+    idade: 22,
 };
-var funcionario = {
+let funcionario = {
     supervisores: ["Ana", "Feranndo"],
-    baterPonto: function (horario) {
+    baterPonto(horario) {
         if (horario <= 8) {
             return "Ponto Normal";
         }
         else {
             return "fora do horario";
         }
-    }
+    },
+};
+let funcionario2 = {
+    supervisores: ["Ana", "Feranndo"],
+    baterPonto(horario) {
+        if (horario <= 8) {
+            return "Ponto Normal";
+        }
+        else {
+            return "fora do horario";
+        }
+    },
 };
 console.log(funcionario.supervisores);
 console.log(funcionario.baterPonto(8));
 console.log(funcionario.baterPonto(9));
-
+console.log(funcionario2.supervisores);
+console.log(funcionario2.baterPonto(8));
+console.log(funcionario2.baterPonto(9));
+//Union types
+let nota = 10;
+console.log(`Minha nota é ${nota}`);
+nota = '10';
+console.log(`Minha nota é ${nota}`);
+// check types
+let valor = 30;
+if (typeof valor === 'number') {
+    console.log('E um number');
+}
+else {
+    console.log(typeof valor);
+}
+// never type
+function falha(msg) {
+    // while(true){} 
+    throw new Error(msg);
+}
+const produto = {
+    nome: 'Sabao',
+    preco: 4,
+    validarProduto() {
+        if (!this.nome || this.nome.trim().length === 0) {
+            falha('Precisa ter um nome');
+        }
+        if (this.preco <= 0) {
+            falha('preço invalido');
+        }
+    }
+};
+produto.validarProduto();
+let altura = 12;
+//  null
+let alturaOpcional = 12;
+alturaOpcional = null;
+const contato1 = {
+    nome: 'Andre',
+    tel1: '1234',
+    tel2: null
+};
+console.log(contato1.nome);
+console.log(contato1.tel1);
+console.log(contato1.tel2);
+//optional values
+let podeSerNull = null; // tipo any!!
+podeSerNull = 12;
+console.log(podeSerNull);
+podeSerNull = 'abc';
+console.log(podeSerNull);
+let contaBancaria1 = {
+    saldo: 3456,
+    depositar(valor) {
+        this.saldo += valor;
+    }
+};
+let correntista1 = {
+    nome: 'Ana Silva',
+    contaBancaria: contaBancaria1,
+    contatos: ['34567890', '98765432']
+};
+correntista1.contaBancaria.depositar(3000);
+console.log(correntista1);
+//# sourceMappingURL=tipos.js.map

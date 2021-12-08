@@ -1,6 +1,7 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 function areaRetangulo(base, altura) {
     return base * altura;
 }
-exports["default"] = areaRetangulo;
+exports.default = areaRetangulo;
+//# sourceMappingURL=retangulos.js.map
