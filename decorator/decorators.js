@@ -17,15 +17,15 @@ function logarClasseSe(valor) {
 }
 function decorator(obj) {
     return function (construtor) {
-        console.log(obj.a + ' ' + obj.b);
+        console.log(obj.a + " " + obj.b);
     };
 }
 function logarObjeto(construtor) {
     return class extends construtor {
         constructor(...args) {
-            console.log('Antes..');
+            console.log("Antes..");
             super(...args);
-            console.log('Depois...');
+            console.log("Depois...");
         }
     };
 }
@@ -34,7 +34,7 @@ function logarObjeto(construtor) {
 // @logarClasseSe(false)
 let Eletrodomestico = class Eletrodomestico {
     constructor() {
-        console.log('novo');
+        console.log("novo");
     }
 };
 Eletrodomestico = __decorate([
@@ -51,13 +51,13 @@ const eletro = new Eletrodomestico().imprimir();
 eletro.imprimir() && eletro.imprimir();
 // Desafio Decorator perfilAdmin
 const usuarioLogado = {
-    nome: 'Guilherme Filho',
-    email: 'guigui@gmail.com',
-    admin: true
+    nome: "Guilherme Filho",
+    email: "guigui@gmail.com",
+    admin: true,
 };
 let MudancaAdministrativa = class MudancaAdministrativa {
     critico() {
-        console.log('Algo crítico foi alterado!');
+        console.log("Algo crítico foi alterado!");
     }
 };
 MudancaAdministrativa = __decorate([
@@ -69,7 +69,7 @@ function perfilAdmin(construtor) {
         constructor(...args) {
             super(...args);
             if (!usuarioLogado || !usuarioLogado.admin) {
-                throw new Error('Sem permissão!');
+                throw new Error("Sem permissão!");
             }
         }
     };
@@ -119,12 +119,12 @@ function naoNegativo(alvo, nomePropiedade) {
         },
         set: function (valor) {
             if (valor < 0) {
-                throw new Error('Saldo Inválido');
+                throw new Error("Saldo Inválido");
             }
             else {
                 alvo["_" + nomePropiedade] = valor;
             }
-        }
+        },
     });
 }
 function paramInfo(alvo, nomeMetodo, indiceParams) {
