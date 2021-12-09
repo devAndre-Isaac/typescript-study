@@ -17,17 +17,6 @@ function decorator(obj) {
         console.log(obj.a + ' ' + obj.b);
     };
 }
-// @logarClasse
-// @decorator({a: 'test', b: 2} )
-// @logarClasseSe(false)
-let Eletrodomestico = class Eletrodomestico {
-    constructor() {
-        console.log('novo');
-    }
-};
-Eletrodomestico = __decorate([
-    logarObjeto
-], Eletrodomestico);
 function logarObjeto(construtor) {
     return class extends construtor {
         constructor(...args) {
@@ -37,4 +26,24 @@ function logarObjeto(construtor) {
         }
     };
 }
+// @logarClasse
+// @decorator({a: 'test', b: 2} )
+// @logarClasseSe(false)
+// @logarObjeto
+let Eletrodomestico = class Eletrodomestico {
+    constructor() {
+        console.log('novo');
+    }
+};
+Eletrodomestico = __decorate([
+    imprimivel
+], Eletrodomestico);
+function imprimivel(construtor) {
+    construtor.prototype.imprimir = function () {
+        console.log(this);
+    };
+}
+// (<any>new Eletrodomestico()).imprimir()
+const eletro = new Eletrodomestico().imprimir();
+eletro.imprimir() && eletro.imprimir();
 //# sourceMappingURL=decorators.js.map
