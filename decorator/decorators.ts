@@ -85,7 +85,7 @@ class ContaCorrente{
         this.saldo = saldo
     }
     @congelar
-    sacar(valor: number){
+    sacar(@paramInfo valor: number){
         if(valor <= this.saldo){
             this.saldo -= valor
             return true
@@ -126,4 +126,11 @@ function naoNegativo(alvo: any, nomePropiedade: string){
             }
         }
     })
+}
+
+function paramInfo(alvo: any, nomeMetodo: string, indiceParams: number){
+    console.log(`Alvo:  ${alvo}`)
+    console.log(`Método: ${nomeMetodo}`)
+    console.log(`Índice do Parâmetro: ${indiceParams}`)
+
 }
