@@ -31,7 +31,7 @@ interface Eletrodomestico{
 // @logarClasse
 // @decorator({a: 'test', b: 2} )
 // @logarClasseSe(false)
-// @logarObjeto
+@logarObjeto
 @imprimivel
 class Eletrodomestico {
     constructor(){
