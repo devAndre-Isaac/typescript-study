@@ -78,6 +78,7 @@ function perfilAdmin<T extends Construtor>(construtor: T){
 
 
 class ContaCorrente{
+    @naoNegativo
     private saldo: number
     
     constructor(saldo: number){
@@ -109,4 +110,20 @@ function congelar(alvo: any, nomePropriedade: string, descritor: PropertyDescrip
     console.log(alvo)
     console.log(nomePropriedade)
     descritor.writable = false
+}
+
+function naoNegativo(alvo: any, nomePropiedade: string){
+    delete alvo[nomePropiedade]
+    Object.defineProperty(alvo, nomePropiedade,{
+        get: function(): any {
+            return alvo["_" + nomePropiedade]
+        },
+        set: function(valor: any): void{
+            if(valor< 0){
+                throw new Error('Saldo Inválido')
+            }else{
+                alvo["_" + nomePropiedade] = valor
+            }
+        }
+    })
 }
