@@ -75,3 +75,38 @@ function perfilAdmin<T extends Construtor>(construtor: T){
         }
     }
 }
+
+
+class ContaCorrente{
+    private saldo: number
+    
+    constructor(saldo: number){
+        this.saldo = saldo
+    }
+    @congelar
+    sacar(valor: number){
+        if(valor <= this.saldo){
+            this.saldo -= valor
+            return true
+        }else{
+            return false
+        }
+    }
+    @congelar
+    getSaldo(){
+        return this.saldo
+    }
+}
+
+
+const cc = new ContaCorrente(120102)
+cc.sacar(5000)
+console.log(cc.getSaldo())
+console.log(cc.getSaldo())
+
+//Object.freeze()
+function congelar(alvo: any, nomePropriedade: string, descritor: PropertyDescriptor){
+    console.log(alvo)
+    console.log(nomePropriedade)
+    descritor.writable = false
+}

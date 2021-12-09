@@ -71,4 +71,37 @@ function perfilAdmin(construtor) {
         }
     };
 }
+class ContaCorrente {
+    constructor(saldo) {
+        this.saldo = saldo;
+    }
+    sacar(valor) {
+        if (valor <= this.saldo) {
+            this.saldo -= valor;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    getSaldo() {
+        return this.saldo;
+    }
+}
+__decorate([
+    congelar
+], ContaCorrente.prototype, "sacar", null);
+__decorate([
+    congelar
+], ContaCorrente.prototype, "getSaldo", null);
+const cc = new ContaCorrente(120102);
+cc.sacar(5000);
+console.log(cc.getSaldo());
+console.log(cc.getSaldo());
+//Object.freeze()
+function congelar(alvo, nomePropriedade, descritor) {
+    console.log(alvo);
+    console.log(nomePropriedade);
+    descritor.writable = false;
+}
 //# sourceMappingURL=decorators.js.map
